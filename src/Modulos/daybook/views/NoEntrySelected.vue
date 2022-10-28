@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex justify-content-center">
     <h1 class="align-self-center">No hay nada seleccionado</h1>
-    <buttonFab/>
+    <buttonFab @newclick="PostNewEntry"/>
   </div>
 
 
@@ -12,6 +12,10 @@ import buttonFab from '../components/FabBut.vue'
 export default {
 components:{
   buttonFab
+},methods:{
+  PostNewEntry(){
+    this.$router.push({name:'entry',params:{id:'new'}})
+  }
 }
 }
 </script>

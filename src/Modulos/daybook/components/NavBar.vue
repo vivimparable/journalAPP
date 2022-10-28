@@ -7,10 +7,10 @@
             Daybook
         </a>
         <div >
-            <button class="mx-2 btn btn-outline-info">LogOut
-                <i class="fa fa-sign-out-alt"></i>
-            </button>
+            
+            
 
         </div>
     </nav>
 </template>
+

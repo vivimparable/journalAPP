@@ -1,6 +1,7 @@
 <template>
     <div>
-        <button class="btn btn-primary">
+        <button class="btn btn-primary"
+        @click="saveClick">
             <i :class="`fa fa-2x ${icon}`"></i>
         </button>
         <h4>{{colins}}</h4>
@@ -14,6 +15,12 @@ export default {
             default:'fa-plus'
         }
         
+    },methods:{
+        saveClick(){
+            this.$emit('newclick')
+        
+        }
+            
     }
 }
 </script>

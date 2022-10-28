@@ -1,6 +1,15 @@
 <template>
     <navBar/>
-        <div class="d-flex">
+
+    <div v-if="isLoading" class="row justify-content-md-center">
+        <div class="col-3 alert alert-primary text-center mt-5">
+            Espere por favor... 
+            <h3 class="mt-2">
+                <i class="fa fa-spin fa-sync"></i>
+            </h3>
+        </div>
+    </div>
+        <div v-else class="d-flex">
             <div class="col-4">
                 <EntryList/>
             </div>  
@@ -8,15 +17,29 @@
                 <router-view/>
             </div>
         </div>
+        <div>
+            
+        </div>
 </template>
 <script>
+import { mapActions, mapState } from 'vuex'
 import EntryList from '../components/EntryList.vue'
 
 import navBar from '../components/NavBar.vue'
 export default {
+    computed:{
+...mapState('journal',['isLoading','entries'])
+    },
+    methods:{
+...mapActions('journal',['APIFirebase'])
+    },
     components:{
         navBar,
         EntryList
+    },created(){
+        this.APIFirebase(); 
+        console.log(this.entries)
+        
     }
 }
 </script>
